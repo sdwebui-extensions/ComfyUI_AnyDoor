@@ -18,11 +18,13 @@ import albumentations as A
 from omegaconf import OmegaConf
 from PIL import Image
 import folder_paths
-from modelscope.hub.file_download import model_file_download
+# from modelscope.hub.file_download import model_file_download
 
 
 anydoor_current_path = os.path.dirname(os.path.abspath(__file__))
 weigths_current_path = os.path.join(folder_paths.models_dir, "anydoor")
+if os.path.exists(folder_paths.cache_dir):
+    weigths_current_path = os.path.join(folder_paths.cache_dir, "anydoor")
 
 if not os.path.exists(weigths_current_path):
     os.makedirs(weigths_current_path)
@@ -33,6 +35,8 @@ if "anydoor" not in folder_paths.folder_names_and_paths:
 else:
     node_current_paths, _ = folder_paths.folder_names_and_paths["anydoor"]
     print(node_current_paths)
+if os.path.exists(folder_paths.cache_dir):
+    node_current_paths.append(os.path.join(folder_paths.cache_dir, "anydoor"))
 folder_paths.folder_names_and_paths["anydoor"] = (node_current_paths, folder_paths.supported_pt_extensions)
 
 
@@ -265,20 +269,20 @@ class AnyDoor_LoadModel:
         # download model
         model_config = os.path.join(anydoor_current_path, "configs", "anydoor.yaml")
         dino_model_path = os.path.join(weigths_current_path, "dinov2_vitg14_pretrain.pth")
-        if not os.path.exists(dino_model_path):
-            model_file_download('bdsqlsz/AnyDoor-Pruned', file_path="dinov2_vitg14_pretrain.pth",
-                                local_dir=weigths_current_path)
+        # if not os.path.exists(dino_model_path):
+        #     model_file_download('bdsqlsz/AnyDoor-Pruned', file_path="dinov2_vitg14_pretrain.pth",
+        #                         local_dir=weigths_current_path)
         if ckpts == "pruned":
             model_ckpt = os.path.join(weigths_current_path, "epoch=1-step=8687-pruned.ckpt")
-            if not os.path.exists(model_ckpt):
-                model_ckpt = model_file_download('bdsqlsz/AnyDoor-Pruned',
-                                                 file_path="epoch=1-step=8687-pruned.ckpt",
-                                                 local_dir=weigths_current_path)
+            # if not os.path.exists(model_ckpt):
+            #     model_ckpt = model_file_download('bdsqlsz/AnyDoor-Pruned',
+            #                                      file_path="epoch=1-step=8687-pruned.ckpt",
+            #                                      local_dir=weigths_current_path)
         else:
             model_ckpt = os.path.join(weigths_current_path, "epoch=1-step=8687.ckpt")
-            if not os.path.exists(model_ckpt):
-                model_ckpt = model_file_download('iic/AnyDoor', file_path="epoch=1-step=8687.ckpt",
-                                                 local_dir=weigths_current_path)
+            # if not os.path.exists(model_ckpt):
+            #     model_ckpt = model_file_download('iic/AnyDoor', file_path="epoch=1-step=8687.ckpt",
+            #                                      local_dir=weigths_current_path)
         model = create_model(model_config).cpu()
         model.load_state_dict(load_state_dict(model_ckpt, location='cuda'))
         model = model.cuda()

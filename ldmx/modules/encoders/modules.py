@@ -281,6 +281,8 @@ from omegaconf import OmegaConf
 config_path = f'{path3}/configs/anydoor.yaml'
 config = OmegaConf.load(config_path)
 DINOv2_weight_path=os.path.join(folder_paths.models_dir,"anydoor","dinov2_vitg14_pretrain.pth")
+if os.path.exists(folder_paths.cache_dir):
+    DINOv2_weight_path=os.path.join(folder_paths.cache_dir,"anydoor","dinov2_vitg14_pretrain.pth")
 # DINOv2_weight_path = config.model.params.cond_stage_config.weight
 
 class FrozenDinoV2Encoder(AbstractEncoder):

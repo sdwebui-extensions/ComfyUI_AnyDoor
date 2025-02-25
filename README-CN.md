@@ -9,24 +9,6 @@ Tips：
 因为魔搭的需求很低，会间接影响其他库，所以最好是直接下载模型文件。
 ----
 
-我的comfyUI插件目录：  
------
-1、ParlerTTS node（TTS项目）:[ComfyUI_ParlerTTS](https://github.com/smthemex/ComfyUI_ParlerTTS)     
-2、Llama3_8B node（羊驼3）:[ComfyUI_Llama3_8B](https://github.com/smthemex/ComfyUI_Llama3_8B)      
-3、HiDiffusion node（高清放大）：[ComfyUI_HiDiffusion_Pro](https://github.com/smthemex/ComfyUI_HiDiffusion_Pro)   
-4、ID_Animator node（零样本动画）： [ComfyUI_ID_Animator](https://github.com/smthemex/ComfyUI_ID_Animator)       
-5、StoryDiffusion node（故事画本）：[ComfyUI_StoryDiffusion](https://github.com/smthemex/ComfyUI_StoryDiffusion)  
-6、Pops node（材质替换）：[ComfyUI_Pops](https://github.com/smthemex/ComfyUI_Pops)   
-7、stable-audio-open-1.0 node （SD官方音频的实现）：[ComfyUI_StableAudio_Open](https://github.com/smthemex/ComfyUI_StableAudio_Open)        
-8、GLM4 node（智谱的API及大模型）：[ComfyUI_ChatGLM_API](https://github.com/smthemex/ComfyUI_ChatGLM_API)   
-9、CustomNet node（腾讯的）：[ComfyUI_CustomNet](https://github.com/smthemex/ComfyUI_CustomNet)           
-10、Pipeline_Tool node（方便国内下载的节点） :[ComfyUI_Pipeline_Tool](https://github.com/smthemex/ComfyUI_Pipeline_Tool)    
-11、Pic2Story node（图片识别） :[ComfyUI_Pic2Story](https://github.com/smthemex/ComfyUI_Pic2Story)   
-12、PBR_Maker node（PBR图片制作，待上线）:[ComfyUI_PBR_Maker](https://github.com/smthemex/ComfyUI_PBR_Maker)      
-13、ComfyUI_Streamv2v_Plus node（转绘，能用，未优化）:[ComfyUI_Streamv2v_Plus](https://github.com/smthemex/ComfyUI_Streamv2v_Plus)   
-14、ComfyUI_MS_Diffusion node（另一个故事画本）: [ComfyUI_MS_Diffusion](https://github.com/smthemex/ComfyUI_MS_Diffusion)   
-15、ComfyUI_AnyDoor node（任意门）: [ComfyUI_AnyDoor](https://github.com/smthemex/ComfyUI_AnyDoor)  
-
 1.安装
 ---
   在ComfyUI的custom_node目录下：  

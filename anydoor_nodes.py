@@ -1,24 +1,15 @@
 # !/usr/bin/env python
 # -*- coding: UTF-8 -*-
-import hashlib
 import os
 import cv2
 import einops
 import numpy as np
 import torch
-import random
-from pytorch_lightning import seed_everything
-from .ldmx.model import create_model, load_state_dict
-from .ldmx.ddim_hacked import DDIMSampler
-from .ldmx.hack import disable_verbosity, enable_sliced_attention
 from .datasets.data_utils import *
 cv2.setNumThreads(0)
 cv2.ocl.setUseOpenCL(False)
-import albumentations as A
-from omegaconf import OmegaConf
 from PIL import Image
 import folder_paths
-# from modelscope.hub.file_download import model_file_download
 
 
 anydoor_current_path = os.path.dirname(os.path.abspath(__file__))
@@ -262,6 +253,9 @@ class AnyDoor_LoadModel:
     CATEGORY = "AnyDoor"
 
     def main_loader(self,save_memory,ckpts):
+        from .ldmx.model import create_model, load_state_dict
+        from .ldmx.ddim_hacked import DDIMSampler
+        from .ldmx.hack import disable_verbosity, enable_sliced_attention
         disable_verbosity()
         if save_memory:
             enable_sliced_attention()
